@@ -52,6 +52,36 @@ const arrayFrutas3 = [
     stock: 20,
   },
 ];
+//metodo - methods
+const handleClick = (menssage) => {
+  console.log(menssage);
+};
+
+//contador counter1 no es reactivo
+let counter1 = 0;
+
+const increment1 = () => {
+  console.log("aumentar contador");
+  counter1++;
+  console.log(counter1);
+};
+
+import { ref } from "vue";
+//counter ahora si es una variable reactiva
+const counter = ref(0);
+
+const increment = () => {
+  // mutamos el valor a través de .value
+  counter.value++;
+};
+
+const decrement = () => {
+  counter.value--;
+};
+
+const reset = () => {
+  counter.value = 0;
+};
 </script>
 
 <template>
@@ -88,7 +118,28 @@ const arrayFrutas3 = [
   </ul>
   <h1>Eventos</h1>
   <!-- v-on, se acorta a @ para escuchar eventos -->
-  
+  <button v-on:click="handleClick('Texto 1')">Activame 1</button>
+  <br />
+  <br />
+  <button @click="handleClick('Texto 2')">Activame 2</button>
+  <br />
+  <br />
+  <button @click="handleClick('Texto left')">Activame left</button>
+  <button @click.middle="handleClick('Texto middle')">Activame middle</button>
+  <button @click.right.prevent="handleClick('Texto right')">
+    Activame right
+  </button>
+  <br />
+  <br />
+  <!-- Variables reactivas, contador -->
+  <button @click="increment">Aumentar</button>
+  <br />
+  <br />
+  <button @click="decrement">Disminuir</button>
+  <br />
+  <br />
+  <button @click="reset">Reset</button>
+  <h2>{{ counter }}</h2>
 </template>
 
 <style>
