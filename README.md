@@ -14,5 +14,5 @@ npm init vue@latest
 - Events (v-on:click).
 - Reactive variables (ref, computed).
 - Bootstrap 5 (CDN) for styling.
-- Deploy.
+- Deploy
 [01-vue](https://contador-reactivo-vue3.netlify.app/).
