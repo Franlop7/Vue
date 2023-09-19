@@ -1,6 +1,7 @@
 # vue 3
 
 <h2>This is an introduction to vue3.</h2>
+
 - We start a new project.
 ``js
 npm init vue@latest
