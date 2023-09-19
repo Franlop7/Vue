@@ -66,9 +66,10 @@ const increment1 = () => {
   console.log(counter1);
 };
 
-import { ref } from "vue";
+import { ref, computed } from "vue";
 //counter ahora si es una variable reactiva
 const counter = ref(0);
+const arrayFavorite = ref([]);
 
 const increment = () => {
   // mutamos el valor a través de .value
@@ -82,6 +83,30 @@ const decrement = () => {
 const reset = () => {
   counter.value = 0;
 };
+
+const add = () => {
+  arrayFavorite.value.push(counter.value);
+};
+
+const blockBtnAdd = computed(() => {
+  const numSearch = arrayFavorite.value.find((num) => num === counter.value);
+
+  // if (numSearch === 0) return true;
+  // return numSearch ? true : false;
+  // una forma mas corta de hacer lo mismo
+  return numSearch || numSearch === 0;
+});
+
+const classCounter = computed(() => {
+  if (counter.value === 0) {
+    return "zero";
+  }
+  if (counter.value > 0) {
+    return "positive";
+  } else {
+    return "negative";
+  }
+});
 </script>
 
 <template>
@@ -132,6 +157,7 @@ const reset = () => {
   <br />
   <br />
   <!-- Variables reactivas, contador -->
+  <h2>Contador reactivo</h2>
   <button @click="increment">Aumentar</button>
   <br />
   <br />
@@ -139,11 +165,34 @@ const reset = () => {
   <br />
   <br />
   <button @click="reset">Reset</button>
-  <h2>{{ counter }}</h2>
+  <br />
+  <br />
+  <button @click="add" :disabled="blockBtnAdd">add</button>
+  <h2 :class="classCounter">
+    {{ counter }}
+  </h2>
+  <br />
+  <!-- {{ arrayFavorite }} -->
+  <ul>
+    <li v-for="(num, index) in arrayFavorite" :key="index">{{ num }}</li>
+  </ul>
 </template>
 
 <style>
 h1 {
   color: aquamarine;
+}
+.negative {
+  color: red;
+}
+.positive {
+  color: green;
+}
+.zero {
+  color: aquamarine;
+}
+
+body {
+  padding: 10px
 }
 </style>
