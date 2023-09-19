@@ -157,25 +157,31 @@ const classCounter = computed(() => {
   <br />
   <br />
   <!-- Variables reactivas, contador -->
-  <h2>Contador reactivo</h2>
-  <button @click="increment">Aumentar</button>
-  <br />
-  <br />
-  <button @click="decrement">Disminuir</button>
-  <br />
-  <br />
-  <button @click="reset">Reset</button>
-  <br />
-  <br />
-  <button @click="add" :disabled="blockBtnAdd">add</button>
-  <h2 :class="classCounter">
-    {{ counter }}
-  </h2>
-  <br />
-  <!-- {{ arrayFavorite }} -->
-  <ul>
-    <li v-for="(num, index) in arrayFavorite" :key="index">{{ num }}</li>
-  </ul>
+  <div class="container text-center mt-5">
+    <h2>Contador reactivo</h2>
+    <div class="btn-group">
+      <button @click="increment" class="btn btn-success">Aumentar</button>
+      <button @click="decrement" class="btn btn-danger">Disminuir</button>
+      <button @click="reset" class="btn btn-secondary">Reset</button>
+      <button @click="add" :disabled="blockBtnAdd" class="btn btn-primary">
+        add
+      </button>
+    </div>
+    <h2 :class="classCounter">
+      {{ counter }}
+    </h2>
+    <!-- {{ arrayFavorite }} -->
+    <h2 class="mt-3">Favoritos</h2>
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        v-for="(num, index) in arrayFavorite"
+        :key="index"
+      >
+        {{ num }}
+      </li>
+    </ul>
+  </div>
 </template>
 
 <style>
@@ -193,6 +199,6 @@ h1 {
 }
 
 body {
-  padding: 10px
+  padding: 10px;
 }
 </style>
