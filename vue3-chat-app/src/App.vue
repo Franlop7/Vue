@@ -1,13 +1,23 @@
 <template>
   <v-app>
-    <v-main>
+    <v-app-bar color="primary">
+      <v-app-bar-title>Vuetify Chat</v-app-bar-title>
+      <v-btn variant="outlined">Acceder</v-btn>
+    </v-app-bar>
+
+    <v-main app>
       <v-container>
-        <h1 class="text-center mt-5 text-h1">Chat app con vuetify 3</h1>
-        <v-btn color="blue-grey darken-4" variant="outlined" prepend-icon="mdi-google-downasaur"
-          >Click aquí</v-btn
-        >
-        <v-btn class="ml-5" color="red" append-icon="mdi-google-controller">Click aquí</v-btn>
+        <ChatComponent />
       </v-container>
     </v-main>
+
+    <v-footer class="d-flex flex-column" app>
+      Formulario para agregar mensajes
+    </v-footer>
   </v-app>
 </template>
+
+<script setup>
+import ChatComponent from './components/ChatComponent.vue';
+
+</script>
