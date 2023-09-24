@@ -12,12 +12,13 @@
     </v-main>
 
     <v-footer class="d-flex flex-column" app>
-      Formulario para agregar mensajes
+      <FormAdd />
     </v-footer>
   </v-app>
 </template>
 
 <script setup>
 import ChatComponent from './components/ChatComponent.vue';
+import FormAdd from './components/FormAdd.vue';
 
 </script>
