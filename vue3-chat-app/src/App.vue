@@ -18,7 +18,6 @@
 </template>
 
 <script setup>
-import ChatComponent from './components/ChatComponent.vue';
-import FormAdd from './components/FormAdd.vue';
-
+import ChatComponent from './components/ChatComponent.vue'
+import FormAdd from './components/FormAdd.vue'
 </script>
