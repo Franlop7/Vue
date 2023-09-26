@@ -16,3 +16,11 @@ npm init vue@latest
 - Bootstrap 5 (CDN) for styling.
 - Deploy
 [01-vue](https://contador-reactivo-vue3.netlify.app/).
+
+<h2>Chat app with vue3,vuetify and firebase.</h2>
+
+- We use everything we have learned previously.
+- We use vuetify.
+- we use firebase for database and for deploying the app.
+- login with google account.
+[vue3-chat-app](https://chatvuetify-81325.web.app/).
