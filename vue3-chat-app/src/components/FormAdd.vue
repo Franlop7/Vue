@@ -15,12 +15,23 @@
 
 <script setup>
 import { ref } from 'vue'
+import { db, auth } from '../firebase'
+import { addDoc, collection } from 'firebase/firestore'
 
 const message = ref('')
 
-const sendMessage = () => {
-  console.log('enviado mensaje ' + message.value)
-
-  message.value = ''
+const sendMessage = async () => {
+  // console.log('enviado mensaje ' + message.value)
+  try {
+    await addDoc(collection(db, 'chats'), {
+      text: message.value,
+      time: Date.now(),
+      uid: auth.currentUser.uid,
+      displayName: auth.currentUser.displayName
+    })
+    message.value = ''
+  } catch (error) {
+    console.log(error)
+  }
 }
 </script>
