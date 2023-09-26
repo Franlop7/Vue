@@ -37,7 +37,7 @@ const unsubscribe = onSnapshot(q, (snapshot) => {
       })
       setTimeout(() => {
         if (chatsRef.value !== null) {
-          console.log(chatsRef.value.scrollHeight)
+          // console.log(chatsRef.value.scrollHeight)
           window.scrollTo(0, chatsRef.value.scrollHeight)
         }
       }, 60)
