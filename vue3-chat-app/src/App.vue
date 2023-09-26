@@ -36,7 +36,7 @@ const googleAccess = async () => {
   try {
     const provider = new GoogleAuthProvider()
     const { user } = await signInWithPopup(auth, provider)
-    console.log(user)
+    // console.log(user)
   } catch (error) {
     console.log(error)
   }
@@ -47,7 +47,7 @@ const logout = async () => {
 }
 
 onAuthStateChanged(auth, (user) => {
-  console.log(user)
+  // console.log(user)
   userGoogle.value = user
 })
 </script>
