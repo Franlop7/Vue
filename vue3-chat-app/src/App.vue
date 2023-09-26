@@ -16,7 +16,7 @@
       </v-container>
     </v-main>
 
-    <v-footer class="d-flex flex-column" app v-if="userGoogle !== false">
+    <v-footer class="d-flex flex-column" app v-if="userGoogle">
       <FormAdd />
     </v-footer>
   </v-app>
@@ -25,7 +25,7 @@
 <script setup>
 import { GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut } from 'firebase/auth'
 import { auth } from './firebase'
-import { ref } from 'vue';
+import { ref } from 'vue'
 
 import ChatComponent from './components/ChatComponent.vue'
 import FormAdd from './components/FormAdd.vue'
