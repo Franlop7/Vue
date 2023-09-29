@@ -21,6 +21,6 @@ npm init vue@latest
 
 - We use everything we have learned previously.
 - We use vuetify.
-- we use firebase for database and for deploying the app.
+- we use firebase cloud storage and for deploying the app.
 - login with google account.
 [vue3-chat-app](https://chatvuetify-81325.web.app/).
