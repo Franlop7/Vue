@@ -30,14 +30,12 @@ const q = query(collection(db, 'chats'), orderBy('time'))
 const unsubscribe = onSnapshot(q, (snapshot) => {
   snapshot.docChanges().forEach((change) => {
     if (change.type === 'added') {
-      // console.log('Message: ', change.doc.id, change.doc.data())
       messages.value.push({
         id: change.doc.id,
         ...change.doc.data()
       })
       setTimeout(() => {
         if (chatsRef.value !== null) {
-          // console.log(chatsRef.value.scrollHeight)
           window.scrollTo(0, chatsRef.value.scrollHeight)
         }
       }, 60)

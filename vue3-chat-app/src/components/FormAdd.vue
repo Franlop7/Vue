@@ -1,7 +1,7 @@
 <template>
   <v-form class="w-100" @submit.prevent="sendMessage">
     <v-text-field
-      color="success"
+      color="blue"
       label="Ingrese mensaje"
       variant="outlined"
       hide-details
@@ -21,7 +21,6 @@ import { addDoc, collection } from 'firebase/firestore'
 const message = ref('')
 
 const sendMessage = async () => {
-  // console.log('enviado mensaje ' + message.value)
   try {
     await addDoc(collection(db, 'chats'), {
       text: message.value,

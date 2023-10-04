@@ -1,8 +1,8 @@
 <template>
   <v-app>
     <div v-if="userGoogle === false">Loading...</div>
-    <v-app-bar color="primary" v-if="userGoogle !== false">
-      <v-app-bar-title>Vuetify Chat</v-app-bar-title>
+    <v-app-bar color="blue" v-if="userGoogle !== false">
+      <v-app-bar-title>Welcome to Chat</v-app-bar-title>
       <v-btn variant="outlined" @click="googleAccess" v-if="!userGoogle">Acceder</v-btn>
       <v-btn variant="outlined" @click="logout" v-if="userGoogle">Salir</v-btn>
     </v-app-bar>
@@ -36,7 +36,6 @@ const googleAccess = async () => {
   try {
     const provider = new GoogleAuthProvider()
     const { user } = await signInWithPopup(auth, provider)
-    // console.log(user)
   } catch (error) {
     console.log(error)
   }
@@ -47,7 +46,6 @@ const logout = async () => {
 }
 
 onAuthStateChanged(auth, (user) => {
-  // console.log(user)
   userGoogle.value = user
 })
 </script>
